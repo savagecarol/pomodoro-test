@@ -174,7 +174,6 @@ class Settings extends StatelessWidget {
                       }),
                       onTap: () => _openColorPicker(context, 'Background'),
                     ),
-                    // Timer Color Picker
                     ListTile(
                       title:  Text(
                         "font Color",
@@ -199,7 +198,7 @@ class Settings extends StatelessWidget {
                           ),
                         );
                       }),
-                      onTap: () => _openColorPicker(context, 'Timer'),
+                      onTap: () => _openColorPicker(context, 'font'),
                     ),
                     // Dial Color Picker
                     ListTile(
@@ -256,6 +255,9 @@ class Settings extends StatelessWidget {
                     ),
                     SizedBox(height: 16),
                     ElevatedButton(
+                       style: ElevatedButton.styleFrom(
+                          backgroundColor: themeController.dialColor.value,
+                      ),
                       onPressed: themeController.resetToDefault,
                       child: Text(
                         "Reset To Default",

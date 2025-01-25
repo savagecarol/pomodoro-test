@@ -57,8 +57,25 @@ class _PomodoroScreenState extends State<PomodoroScreen> {
                                     )
                                   ),
                    child: Text("${pomodoroController.sessionCount.value}",
-                   style: TextStyle(color: themeController.fontColor.value , fontSize: 32 , fontWeight: FontWeight.w600),),
+                   style: TextStyle(color: themeController.fontColor.value , fontSize: 24 , fontWeight: FontWeight.w600),),
                  )),
+
+
+                (!(pomodoroController.isPomodoroRunning.value == false && pomodoroController.isPomodoroRunning.value == false)) ? 
+                  Positioned(bottom:  sidebarController.isSidebarOpen.value == false ? 32 : 48 , right: 16, child:   Container(
+                                  padding:const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                                  decoration: BoxDecoration(
+                                    color: Colors.transparent,
+                                    borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(
+                                      width: 2,
+                                      color: themeController.iconColor.value
+                                    )
+                                  ),
+                   child: Text( pomodoroController.isPomodoroRunning.value ? "FOCUS" :  pomodoroController.isBreakRunning.value ? "BREAK" : "" ,
+                   style: TextStyle(color: themeController.fontColor.value , fontSize: 24 , fontWeight: FontWeight.w600),),
+                 )) : Container(),
+
           ],
         ),
       );

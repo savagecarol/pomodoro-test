@@ -27,13 +27,17 @@ class CustomTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-                      return   InkWell(
+                      return   GestureDetector(
                                   onTap: onTap,
                                 child: Container(
                                 padding: padding,
                                 margin:margin,
                                 decoration: BoxDecoration(
+                                  
                                   borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                    width: 2,
+                                  ),
                                   color:  themeController.dialColor.value,
                                  
                                 ),
