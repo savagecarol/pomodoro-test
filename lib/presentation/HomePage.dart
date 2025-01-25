@@ -8,7 +8,30 @@ import 'package:pomodoro/presentation/screen/CurrentTimeScreen.dart';
 import 'package:pomodoro/presentation/screen/PomodoroScreen.dart';
 import 'package:pomodoro/presentation/screen/TimerScreen.dart';
 
-Widget _HomePageViwer(int currentScreen) {
+
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+    @override
+  void initState() {
+    super.initState();
+     getValue();
+   
+  }
+
+  getValue() async{
+    await themeController.getColor();
+  }
+
+
+  Widget _HomePageViwer(int currentScreen) {
     switch (currentScreen) {
       case 0:
         return Currenttimescreen();
@@ -91,12 +114,14 @@ Widget bottomBuilder(BuildContext context){
                             );                                                      
 }
 
-class Homepage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Obx(() { 
-      return Scaffold(
-      backgroundColor:  themeController.backgroundColor.value.shade800,
+     return (themeController.isColorLoading.value) 
+      ? const Scaffold(body: Center(child: CircularProgressIndicator()))
+      : Scaffold(
+      backgroundColor:  themeController.backgroundColor.value,
       body: GestureDetector(
         onTap: () {
           sidebarController.toggleSidebar();
@@ -126,15 +151,15 @@ class Homepage extends StatelessWidget {
 
                                   CustomIconButton(iconData: Icons.access_time_outlined , onTap: () {
                                     screenmanagementcontroller.updateScreen(0);
-                                  } , iconColor: themeController.iconColor.value, backgroundColour: themeController.backgroundColor.value , margin: EdgeInsets.symmetric(vertical: 8),
+                                  } , iconColor: themeController.iconColor.value, backgroundColour: themeController.dialColor.value , margin: EdgeInsets.symmetric(vertical: 8),
                                   isActive: screenmanagementcontroller.currentSecreen == 0 ? true : false ,),          
                                   CustomIconButton(iconData: Icons.hourglass_bottom , onTap: () {
                                        screenmanagementcontroller.updateScreen(1);
-                                  }, iconColor:  themeController.iconColor.value, backgroundColour: themeController.backgroundColor.value , margin: EdgeInsets.symmetric(vertical: 8),
+                                  }, iconColor:  themeController.iconColor.value, backgroundColour: themeController.dialColor.value , margin: EdgeInsets.symmetric(vertical: 8),
                                    isActive: screenmanagementcontroller.currentSecreen == 1 ? true : false ),
                                   CustomIconButton(iconData: Icons.timer , onTap: () {
                                        screenmanagementcontroller.updateScreen(2);
-                                  }, iconColor:  themeController.iconColor.value, backgroundColour: themeController.backgroundColor.value , margin: EdgeInsets.symmetric(vertical: 8),
+                                  }, iconColor:  themeController.iconColor.value, backgroundColour: themeController.dialColor.value , margin: EdgeInsets.symmetric(vertical: 8),
                                    isActive: screenmanagementcontroller.currentSecreen == 2 ? true : false ),
                           ],
                         ),

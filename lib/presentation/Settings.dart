@@ -7,7 +7,6 @@ import 'package:pomodoro/controller/ThemeController.dart';
 class Settings extends StatelessWidget {
   const Settings({super.key});
 
-// Function to show the color picker dialog
   void _openColorPicker(BuildContext context, String colorType) {
     showDialog(
       context: context,
@@ -58,13 +57,11 @@ class Settings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Instantiate the controller
-
     return    Obx(() { 
       return Scaffold(
-      backgroundColor: themeController.backgroundColor.value.shade800,
+      backgroundColor: themeController.backgroundColor.value,
       appBar: AppBar(
-        backgroundColor: themeController.backgroundColor.value.shade800,
+        backgroundColor: themeController.backgroundColor.value,
         iconTheme:  IconThemeData(
           color:  themeController.iconColor.value,
         ),

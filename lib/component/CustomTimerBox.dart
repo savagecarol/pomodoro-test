@@ -24,8 +24,8 @@ class CustomTimerBox extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(time , style: TextStyle(color: themeController.defaultFontColor.shade900, fontSize: 64 , fontWeight: FontWeight.bold),),
-               Text(text , style: TextStyle(color: themeController.defaultFontColor.shade900 , fontSize: 16 , fontWeight: FontWeight.w700),),
+              Text(time , style: TextStyle(color: themeController.defaultFontColor, fontSize: 64 , fontWeight: FontWeight.bold),),
+               Text(text , style: TextStyle(color: themeController.defaultFontColor , fontSize: 16 , fontWeight: FontWeight.w700),),
             ],
           ),
         ),

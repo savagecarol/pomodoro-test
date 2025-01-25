@@ -1,22 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pomodoro/presentation/HomePage.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+  DeviceOrientation.portraitUp,
+  DeviceOrientation.portraitDown,
+]).then((_) {
+    runApp(const MyApp());
+  });
 }
-
-// @pragma("vm:entry-point")
-// void overlayMain() {
-//   runApp(const MaterialApp(
-//     debugShowCheckedModeBanner: false,
-//     home: Material(child: Text("My overlay"))
-//   ));
-// }
-
-
-
-
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -25,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Pomodoro',
-      home: SafeArea(child: Homepage()),
+      home: SafeArea(child: HomePage()),
     );
   }
 }
