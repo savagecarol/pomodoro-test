@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:get/get.dart';
 import 'package:pomodoro/contants/global.dart';
-import 'package:pomodoro/controller/ThemeController.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});
