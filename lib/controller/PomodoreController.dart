@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:just_audio/just_audio.dart';
 
 class PomodoroController extends GetxController {
   var minute = 25.obs;  
@@ -11,6 +12,8 @@ class PomodoroController extends GetxController {
   var isSetting = false.obs;
   var is25 = false.obs;
   Timer? pomodoroTimer;
+
+  final player = AudioPlayer();
 
   changeTime() async {
     final SharedPreferences prefs =  await SharedPreferences.getInstance();
@@ -64,6 +67,7 @@ class PomodoroController extends GetxController {
 
   void startTimer() {
     pomodoroTimer = Timer.periodic(Duration(seconds: 1), (timer) {
+      playBeep();
       if (seconds.value > 0) {
         seconds.value--;  
       } else if (minute.value > 0) {
@@ -74,12 +78,23 @@ class PomodoroController extends GetxController {
         if (isPomodoroRunning.value) {
           sessionCount.value++;
           startBreak();
+          playBeep();
         } else if (isBreakRunning.value) {
           startPomodoro();
+          playBeep();
         }
       }
     });
   }
+
+
+
+void playBeep() async {
+  await player.setAsset('assets/beep.wav');
+  player.play();
+}
+
+
 
   void stopTimer() {
     pomodoroTimer?.cancel(); 

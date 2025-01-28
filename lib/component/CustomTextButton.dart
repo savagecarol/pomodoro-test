@@ -33,13 +33,8 @@ class CustomTextButton extends StatelessWidget {
                                 padding: padding,
                                 margin:margin,
                                 decoration: BoxDecoration(
-                                  
                                   borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(
-                                    width: 2,
-                                  ),
-                                  color:  themeController.dialColor.value,
-                                 
+                                  color:  themeController.dialColor.value,  
                                 ),
                                 child: Text(text, style: TextStyle( color: fontColor, fontWeight: fontWeight, fontSize: size ))));
                               
