@@ -1,0 +1,2 @@
+/Users/apple/Documents/flutter/pomodoro-test/android/app/.cxx/Debug/3124vg1l/x86/CMakeFiles/edit_cache.dir
+/Users/apple/Documents/flutter/pomodoro-test/android/app/.cxx/Debug/3124vg1l/x86/CMakeFiles/rebuild_cache.dir
